@@ -8,7 +8,7 @@ $category_query = $conn->query($category_select);
     if (isset($_GET['read'])){
         $read_news = $_GET['read'];
 
-        $read_sql = "SELECT category.c_name c_name, category.id id, news.n_cid n_cid FROM category, news WHERE category.id=news.c_id AND news.id=$read_news";
+        $read_sql = "SELECT c_name FROM category WHERE id = (SELECT n_cid FROM news WHERE id=$read_news)";
         $read_category = $conn->query($read_sql);
         $read_category_final = $read_category->fetch_assoc();
 

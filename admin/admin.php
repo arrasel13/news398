@@ -28,6 +28,7 @@ require '../lib/db/connection.php';
         <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> -->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/toastr.min.css">
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
@@ -95,6 +96,7 @@ require '../lib/db/connection.php';
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol> -->
                         <div class="row">
+
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Total Category <span class="badge text-bg-light"><?php echo $t_category; ?></span></div>
@@ -113,6 +115,7 @@ require '../lib/db/connection.php';
                                     </div>
                                 </div>
                             </div>
+
                             <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Warning Card</div>
@@ -175,6 +178,10 @@ require '../lib/db/connection.php';
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/toastr.min.js"></script>
         <script src="js/scripts.js"></script>
+
+        <?php include_once 'includes/toastr.php' ?>
     </body>
 </html>
