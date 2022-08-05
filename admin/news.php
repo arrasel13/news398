@@ -1,8 +1,18 @@
 <?php
 session_start();
-
 require_once '../lib/db/connection.php';
-$result = null;
+//$result = null;
+
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+}else{
+    if(isset($_COOKIE["user_info"])){
+
+    }else{
+        $_SESSION['msg']="Please login first";
+        header("Location: login.php?status=error");
+    }
+}
 
 // Insert query
 if(isset($_POST['n_submit'])){

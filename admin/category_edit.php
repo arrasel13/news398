@@ -2,6 +2,17 @@
 session_start();
 require '../lib/db/connection.php';
 
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+}else{
+    if(isset($_COOKIE["user_info"])){
+
+    }else{
+        $_SESSION['msg']="Please login first";
+        header("Location: login.php?status=error");
+    }
+}
+
 if(isset($_POST['cat_update'])){
     $c_id = $_POST['c_id'];
     $c_icon = $_POST['c_icon'];

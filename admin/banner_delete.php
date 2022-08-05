@@ -2,6 +2,17 @@
 session_start();
 require_once '../lib/db/connection.php';
 
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+}else{
+    if(isset($_COOKIE["user_info"])){
+
+    }else{
+        $_SESSION['msg']="Please login first";
+        header("Location: login.php?status=error");
+    }
+}
+
 if(isset($_POST['d_banner'])){
     $banner_id = mysqli_real_escape_string($conn, $_POST['d_banner']);
 

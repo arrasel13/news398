@@ -3,6 +3,17 @@
 session_start();
 require '../lib/db/connection.php';
 
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+}else{
+    if(isset($_COOKIE["user_info"])){
+
+    }else{
+        $_SESSION['msg']="Please login first";
+        header("Location: login.php?status=error");
+    }
+}
+
     $c_select = "SELECT * FROM category";
     $c_query = $conn->query($c_select);
     $t_category = $c_query->num_rows;
@@ -52,7 +63,7 @@ require '../lib/db/connection.php';
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -84,7 +95,7 @@ require '../lib/db/connection.php';
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Admin
+                        <?php echo $user; ?>
                     </div>
                 </nav>
             </div>

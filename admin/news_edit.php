@@ -2,6 +2,17 @@
 session_start();
 require '../lib/db/connection.php';
 
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+}else{
+    if(isset($_COOKIE["user_info"])){
+
+    }else{
+        $_SESSION['msg']="Please login first";
+        header("Location: login.php?status=error");
+    }
+}
+
 if(isset($_POST['news_update'])){
     $n_id = $_POST['n_id'];
     $n_title = $_POST['n_title'];

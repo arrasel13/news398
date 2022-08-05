@@ -4586,6 +4586,8 @@ textarea.form-control-lg {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .card-header:first-child {
+  color: #fff;
+  background-color: #198754 !important;
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
@@ -4596,6 +4598,12 @@ textarea.form-control-lg {
 }
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+.card-footer.card-signup {
+  background-color: #198754 !important;
+}
+.card-footer.card-signup a {
+  color: #fff;
 }
 
 .card-header-tabs {
