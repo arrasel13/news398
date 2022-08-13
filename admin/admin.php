@@ -3,16 +3,23 @@
 session_start();
 require '../lib/db/connection.php';
 
+//$user = $_SESSION['user'];
+//$cok_user = $_COOKIE["user_info"]);
+//echo $user."<br>";
+//echo $cok_user;
+//exit;
+
 if(isset($_SESSION['user'])){
     $user = $_SESSION['user'];
-}else{
-    if(isset($_COOKIE["user_info"])){
-
-    }else{
-        $_SESSION['msg']="Please login first";
-        header("Location: login.php?status=error");
-    }
 }
+//else{
+//    if(isset($_COOKIE["user_info"])){
+//
+//    }else{
+//        $_SESSION['msg']="Please login first";
+//        header("Location: login.php?status=error");
+//    }
+//}
 
     $c_select = "SELECT * FROM category";
     $c_query = $conn->query($c_select);

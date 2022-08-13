@@ -5,14 +5,15 @@ require '../lib/db/connection.php';
 // $result = null;
 if(isset($_SESSION['user'])){
     $user = $_SESSION['user'];
-}else{
-    if(isset($_COOKIE["user_info"])){
-
-    }else{
-        $_SESSION['msg']="Please login first";
-        header("Location: login.php?status=error");
-    }
 }
+//else{
+//    if(isset($_COOKIE["user_info"])){
+//
+//    }else{
+//        $_SESSION['msg']="Please login first";
+//        header("Location: login.php?status=error");
+//    }
+//}
 
 // Insert query
 if(isset($_POST['banner_submit'])){

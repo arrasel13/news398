@@ -1,0 +1,178 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Aug 13, 2022 at 12:08 AM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `news98`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banner`
+--
+
+CREATE TABLE `banner` (
+  `id` int(3) NOT NULL,
+  `banner_icon` varchar(255) NOT NULL,
+  `banner_title` varchar(255) NOT NULL,
+  `banner_description` text NOT NULL,
+  `banner_status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `banner`
+--
+
+INSERT INTO `banner` (`id`, `banner_icon`, `banner_title`, `banner_description`, `banner_status`) VALUES
+(1, 'fa fa-newspaper-o', 'Lorem ipsum dolor sit amet.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex alias repudiandae assumenda impedit voluptatem et repellat delectus reiciendis perspiciatis velit. impedit voluptatem et repellat delectus reiciendis perspiciatis velit.', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(3) NOT NULL,
+  `c_icon` varchar(50) NOT NULL,
+  `c_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `c_icon`, `c_name`) VALUES
+(1, 'fa fa-rocket', 'tech'),
+(2, 'fa fa-book', 'education'),
+(3, 'fa fa-thermometer-full', 'weather'),
+(4, 'fa fa-user-md', 'health'),
+(5, 'fa fa-university', 'economy'),
+(6, 'fa fa-bicycle', 'sports');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(3) NOT NULL,
+  `n_title` varchar(255) NOT NULL,
+  `n_icon` varchar(50) NOT NULL,
+  `n_description` text NOT NULL,
+  `n_cid` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `n_title`, `n_icon`, `n_description`, `n_cid`) VALUES
+(1, 'Tech Lorem ipsum dolor.', 'fa fa-bug', 'Tech Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 1),
+(2, 'Tech Lorem ipsum dolor.', 'fa fa-bug', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 1),
+(3, 'Tech Lorem ipsum dolor.', 'fa fa-bug', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 1),
+(4, 'Health Lorem ipsum dolor.', 'fa fa-heartbeat', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 4),
+(5, 'Health Lorem ipsum dolor.', 'fa fa-heartbeat', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 4),
+(6, 'Health Lorem ipsum dolor.', 'fa fa-heartbeat', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 4),
+(7, 'Edu Lorem ipsum dolor.', 'fa fa-thumbs-up', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 2),
+(8, 'Edu Lorem ipsum dolor.', 'fa fa-thumbs-up', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 2),
+(9, 'Edu Lorem ipsum dolor.', 'fa fa-thumbs-up', 'Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Cupiditate, nulla architecto doloremque neque ducimus at esse provident minus, itaque suscipit.', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_news_users`
+--
+
+CREATE TABLE `tbl_news_users` (
+  `id` int(3) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `useremail` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_news_users`
+--
+
+INSERT INTO `tbl_news_users` (`id`, `username`, `useremail`, `password`) VALUES
+(1, 'admin', 'admin@admin.com', '202cb962ac59075b964b07152d234b70');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_news_users`
+--
+ALTER TABLE `tbl_news_users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`useremail`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tbl_news_users`
+--
+ALTER TABLE `tbl_news_users`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
